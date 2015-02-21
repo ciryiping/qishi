@@ -1,0 +1,27 @@
+
+<div class="blockform" id="reply">
+    <h2><span>New Topic</span></h2>
+    <div class="box">
+        <form id="post" action="{{ form_url|default_if_none:"." }}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+   
+            
+            <div class="inform">
+                <fieldset>
+                    <legend>Write your message and submit</legend>
+                    <noscript><h1>Please enable JavaScript!</h1></noscript>
+                    <div class="infldset txtarea">
+                       
+                            <label><strong> Subject </strong><br />{{ form.name.errors }}{{ form.title }}<br /></label>
+                       
+                        <label><strong>Message </strong><br />{{ form.body.errors }}{{ form.body }}</label>
+                       
+                        
+                    </div>
+                </fieldset>
+            </div>
+
+            <p><input type="submit" name="{{ form.FORM_NAME }}" value="Submit" /><a href="{{ back_url|default_if_none:"javascript:history.go(-1)" }}"> Go back </a></p>
+        </form>
+    </div>
+</div>
